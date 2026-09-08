@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Submit a Business | CJ Business Acquisitions</title>
+<meta name="description" content="Confidentially submit a business acquisition opportunity to CJ Business Acquisitions. All inquiries are held in strict confidence.">
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="brand">
+      <span class="mark">CJ</span>
+      <span class="brand-text">CJ Business Acquisitions
+        <span class="sub">Engineering &amp; Manufacturing</span>
+      </span>
+    </a>
+    <nav class="main-nav" id="main-nav">
+      <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="investment-criteria.html">Investment Criteria</a>
+          <a href="for-business-owners.html">For Business Owners</a>
+          <a href="contact.html">Contact</a>
+      <a href="submit-a-business.html" class="nav-cta">Sell Your Business</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="eyebrow on-dark">Confidential Submission</div>
+    <h1>Submit a Business Opportunity</h1>
+    <p class="sub">Whether you're a business owner, a broker, or another intermediary, share a few details below and we'll follow up promptly and discreetly.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container" style="max-width:800px;">
+    <div class="confidential-note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V7a4 4 0 018 0v4" stroke-linecap="round"/></svg>
+      <p><strong>Your information is confidential.</strong> This form is sent directly and privately to our team. We do not share submissions with third parties, and we will not contact employees, customers, or competitors without your permission.</p>
+    </div>
+
+    <div class="form-panel">
+      <form id="deal-form" data-web3forms novalidate>
+        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+        <input type="hidden" name="subject" value="New Business Submission — CJ Business Acquisitions">
+        <input type="hidden" name="from_name" value="CJ Business Acquisitions Website">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+        <div class="form-row split">
+          <div>
+            <label for="contact_name">Your Name <span class="opt">(Seller or Broker)</span></label>
+            <input type="text" id="contact_name" name="Contact Name" required>
+          </div>
+          <div>
+            <label for="role">You Are a... <span class="opt">(optional)</span></label>
+            <select id="role" name="Submitter Role">
+              <option value="">Select one</option>
+              <option>Business Owner</option>
+              <option>Broker / M&amp;A Advisor</option>
+              <option>Other Intermediary</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row split">
+          <div>
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div>
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="Phone Number" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label for="company">Company Name</label>
+          <input type="text" id="company" name="Company Name" required>
+        </div>
+
+        <div class="form-row split">
+          <div>
+            <label for="location">Company Location <span class="opt">(City, State)</span></label>
+            <input type="text" id="location" name="Company Location" required>
+          </div>
+          <div>
+            <label for="industry">Industry</label>
+            <input type="text" id="industry" name="Industry" placeholder="e.g. Precision Machining" required>
+          </div>
+        </div>
+
+        <div class="form-row split">
+          <div>
+            <label for="revenue">Annual Revenue</label>
+            <input type="text" id="revenue" name="Annual Revenue" placeholder="e.g. $4,500,000" required>
+          </div>
+          <div>
+            <label for="ebitda">EBITDA / Owner Earnings</label>
+            <input type="text" id="ebitda" name="EBITDA or Owner Earnings" placeholder="e.g. $900,000" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label for="asking-price">Asking Price <span class="opt">(if applicable)</span></label>
+          <input type="text" id="asking-price" name="Asking Price">
+        </div>
+
+        <div class="form-row">
+          <label for="reason">Reason for Selling</label>
+          <textarea id="reason" name="Reason for Selling" required></textarea>
+        </div>
+
+        <div class="form-row">
+          <label for="description">Brief Description of the Business</label>
+          <textarea id="description" name="Business Description" required placeholder="What does the company do, how long has it operated, and what makes it valuable?"></textarea>
+        </div>
+
+        <div class="form-row">
+          <label for="comments">Additional Comments <span class="opt">(optional)</span></label>
+          <textarea id="comments" name="Additional Comments"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block" data-original-text="Submit Confidentially">Submit Confidentially</button>
+        <div id="form-status"></div>
+        <p class="form-note">By submitting, you agree to be contacted by CJ Business Acquisitions regarding this opportunity. We will not share your information with third parties.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>initWeb3FormsHandler('#deal-form');</script>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <span class="mark" style="width:30px;height:30px;font-size:0.85rem;">CJ</span>
+          <strong style="color:#fff;font-family:'Source Serif 4',serif;font-size:1rem;">CJ Business Acquisitions</strong>
+        </div>
+        <p style="max-width:320px;color:rgba(255,255,255,0.55);">
+          Acquiring and operating established engineering and manufacturing businesses in North Carolina's Piedmont Triad, with continuity for the people and customers already there.
+        </p>
+      </div>
+      <div>
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="investment-criteria.html">Investment Criteria</a></li>
+          <li><a href="for-business-owners.html">For Business Owners</a></li>
+          <li><a href="submit-a-business.html">Submit a Business</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:cjohnson@cjbusinessacquisitions.com">cjohnson@cjbusinessacquisitions.com</a></li>
+          <li><a href="tel:+17402381005">740-238-1005</a></li>
+          <li><a href="https://www.linkedin.com/in/chad-johnson-782990149" target="_blank" rel="noopener">LinkedIn Profile</a></li>
+          <li>Piedmont Triad, North Carolina</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> CJ Business Acquisitions. All rights reserved.</span>
+      <span>All inquiries are held in strict confidence.</span>
+    </div>
+  </div>
+</footer>
+<script src="/js/main.js"></script>
+</body>
+</html>
