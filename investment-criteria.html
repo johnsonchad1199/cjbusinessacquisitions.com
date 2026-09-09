@@ -4,32 +4,341 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Investment Criteria | CJ Business Acquisitions</title>
-<meta name="description" content="Our acquisition buy box: EBITDA, margin, geography, sectors, and owner situations we target for engineering and manufacturing businesses.">
-<link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+<meta name="description" content="Our acquisition buy box: $750K-$3M EBITDA, 15% minimum margin, 5+ years operating history, Piedmont Triad geography, engineering and manufacturing sectors.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231e4976'/%3E%3Ctext x='32' y='42' font-family='Helvetica,Arial,sans-serif' font-size='26' font-weight='700' fill='%23ffffff' text-anchor='middle'%3ECJ%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy-900:#12283f;
+  --navy-800:#1a3c5e;
+  --navy-700:#1e4976;
+  --blue-600:#2b6098;
+  --blue-500:#3479b8;
+  --blue-050:#eaf2fa;
+  --green-600:#2f855a;
+  --green-050:#e9f5ee;
+  --bg:#f5f7fa;
+  --bg-deep:#eef2f7;
+  --white:#ffffff;
+  --heading:#16324f;
+  --text:#33404f;
+  --muted:#61728a;
+  --border:#e3e9f0;
+  --radius:14px;
+  --radius-sm:10px;
+  --shadow-sm:0 1px 3px rgba(22,50,79,.06),0 1px 2px rgba(22,50,79,.04);
+  --shadow:0 4px 24px rgba(22,50,79,.07);
+  --shadow-lg:0 18px 48px rgba(22,50,79,.13);
+  --max:1140px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.65;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+h1,h2,h3,h4{color:var(--heading);line-height:1.22;margin:0 0 14px;font-weight:700;letter-spacing:-.02em}
+h1{font-size:clamp(1.72rem,4.4vw,3.05rem)}
+h2{font-size:clamp(1.55rem,2.7vw,2.1rem)}
+h3{font-size:1.22rem;letter-spacing:-.01em}
+h4{font-size:1.02rem;letter-spacing:0}
+p{margin:0 0 15px;color:var(--muted)}
+p:last-child{margin-bottom:0}
+.lede{font-size:1.1rem;color:var(--text)}
+
+.container{width:100%;max-width:var(--max);margin:0 auto;padding:0 22px}
+.narrow{max-width:840px}
+
+.eyebrow{
+  display:inline-block;text-transform:uppercase;letter-spacing:.15em;
+  font-size:.71rem;font-weight:700;color:var(--blue-600);margin-bottom:12px;
+}
+.eyebrow.on-dark{color:#8fc3ee}
+
+/* ---------- Header ---------- */
+.site-header{
+  position:sticky;top:0;z-index:120;background:rgba(255,255,255,.94);
+  backdrop-filter:saturate(180%) blur(12px);
+  border-bottom:1px solid var(--border);
+}
+.site-header .container{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:center;gap:11px;white-space:nowrap}
+.brand .mark{
+  width:36px;height:36px;border-radius:9px;flex-shrink:0;
+  background:linear-gradient(145deg,var(--navy-700),var(--blue-600));
+  color:#fff;font-weight:800;font-size:.92rem;letter-spacing:.02em;
+  display:flex;align-items:center;justify-content:center;
+}
+.brand-text{display:flex;flex-direction:column;line-height:1.15}
+.brand-text .name{font-weight:700;color:var(--heading);font-size:1.02rem;letter-spacing:-.02em}
+.brand-text .sub{font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);font-weight:600}
+
+.main-nav{display:flex;align-items:center;gap:28px}
+.main-nav a{font-size:.92rem;font-weight:500;color:var(--text);transition:color .15s;position:relative;padding:4px 0}
+.main-nav a:hover{color:var(--blue-600)}
+.main-nav a[aria-current="page"]{color:var(--blue-600);font-weight:600}
+.main-nav a[aria-current="page"]::after{
+  content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--blue-600);border-radius:2px;
+}
+.main-nav a.nav-cta{
+  background:var(--navy-700);color:#fff;padding:11px 20px;border-radius:8px;
+  font-weight:600;font-size:.9rem;transition:background .18s,transform .18s,box-shadow .18s;
+  box-shadow:var(--shadow-sm);line-height:1.2;
+}
+.main-nav a.nav-cta:hover{background:var(--blue-600);color:#fff;transform:translateY(-1px);box-shadow:var(--shadow)}
+.main-nav a.nav-cta::after{display:none}
+
+.nav-toggle{display:none;background:none;border:none;color:var(--heading);cursor:pointer;padding:8px;margin-right:-8px}
+.nav-toggle svg{width:26px;height:26px}
+
+@media(max-width:900px){
+  .main-nav{
+    position:fixed;top:72px;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;
+    gap:0;padding:6px 22px 18px;box-shadow:var(--shadow-lg);border-bottom:1px solid var(--border);
+    transform:translateY(-10px);opacity:0;visibility:hidden;transition:.2s;
+  }
+  .main-nav.open{transform:translateY(0);opacity:1;visibility:visible}
+  .main-nav a{padding:13px 2px;border-bottom:1px solid var(--border)}
+  .main-nav a[aria-current="page"]::after{display:none}
+  .main-nav a.nav-cta{text-align:center;justify-content:center;margin-top:12px;padding:14px 20px;border-bottom:none}
+  .nav-toggle{display:inline-flex}
+}
+
+/* ---------- Hero ---------- */
+.hero{
+  background:linear-gradient(158deg,var(--navy-900) 0%,var(--navy-700) 48%,var(--blue-600) 100%);
+  color:#fff;padding:96px 0 104px;text-align:center;position:relative;overflow:hidden;
+}
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 70% 60% at 50% -10%,rgba(255,255,255,.14),transparent 70%);
+}
+.hero .container{position:relative;z-index:1}
+.hero h1{color:#fff;max-width:900px;margin:0 auto 20px}
+.hero .sub{font-size:1.14rem;color:rgba(255,255,255,.84);max-width:660px;margin:0 auto 30px;line-height:1.6}
+
+.page-hero{
+  background:linear-gradient(158deg,var(--navy-900) 0%,var(--navy-700) 55%,var(--blue-600) 100%);
+  color:#fff;padding:70px 0 74px;text-align:center;
+}
+.page-hero h1{color:#fff;margin-bottom:14px}
+.page-hero .sub{color:rgba(255,255,255,.82);max-width:660px;margin:0 auto;font-size:1.06rem}
+
+.badge-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:30px}
+.badge{
+  display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.11);
+  border:1px solid rgba(255,255,255,.2);padding:8px 17px;border-radius:999px;
+  font-size:.83rem;color:rgba(255,255,255,.94);font-weight:500;backdrop-filter:blur(4px);
+}
+.badge .dot{width:5px;height:5px;border-radius:50%;background:#8fc3ee;flex-shrink:0}
+
+.cta-row{display:flex;flex-wrap:wrap;gap:13px;justify-content:center;margin-top:32px}
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:14px 28px;border-radius:9px;font-weight:600;font-size:.96rem;
+  border:1.5px solid transparent;cursor:pointer;font-family:inherit;
+  transition:transform .18s,background .18s,box-shadow .18s,border-color .18s,color .18s;
+}
+.btn-primary{background:#fff;color:var(--navy-700);box-shadow:0 4px 16px rgba(0,0,0,.14)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.btn-outline{background:transparent;border-color:rgba(255,255,255,.42);color:#fff}
+.btn-outline:hover{border-color:#fff;background:rgba(255,255,255,.1)}
+.btn-solid{background:var(--navy-700);color:#fff;box-shadow:var(--shadow-sm)}
+.btn-solid:hover{background:var(--blue-600);transform:translateY(-2px);box-shadow:var(--shadow)}
+.btn-ghost{background:transparent;border-color:var(--border);color:var(--heading)}
+.btn-ghost:hover{border-color:var(--blue-600);color:var(--blue-600)}
+.btn-block{width:100%;padding:16px 28px;font-size:1rem}
+
+/* ---------- Sections & panels ---------- */
+section{padding:70px 0}
+section.tight{padding:48px 0}
+
+.panel{
+  background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);
+  padding:52px;border:1px solid rgba(227,233,240,.8);
+}
+@media(max-width:680px){.panel{padding:30px 22px}}
+
+.panel-head{margin-bottom:34px;padding-bottom:18px;border-bottom:2px solid var(--blue-050);position:relative}
+.panel-head::after{content:"";position:absolute;left:0;bottom:-2px;width:74px;height:2px;background:var(--blue-600)}
+.panel-head h2{margin-bottom:8px}
+.panel-head p{max-width:760px}
+
+.section-head{max-width:720px;margin:0 auto 40px;text-align:center}
+.section-head p{font-size:1.05rem}
+
+/* ---------- Grids & cards ---------- */
+.grid{display:grid;gap:22px}
+.grid-2{grid-template-columns:repeat(2,1fr)}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.grid-4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:940px){.grid-3,.grid-4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
+
+.card{
+  background:var(--white);border:1px solid var(--border);border-radius:var(--radius-sm);
+  padding:26px 24px;border-top:3px solid var(--green-600);
+  transition:transform .2s,box-shadow .2s;
+}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.card.blue-top{border-top-color:var(--blue-600)}
+.card h4{margin-bottom:8px;display:flex;align-items:center;gap:9px}
+.card p{font-size:.94rem}
+.card .ico{width:20px;height:20px;color:var(--green-600);flex-shrink:0}
+.card.blue-top .ico{color:var(--blue-600)}
+
+.card-plain{border-top-width:1px;border-top-color:var(--border)}
+
+/* ---------- Stats ---------- */
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+@media(max-width:760px){.stat-grid{grid-template-columns:repeat(2,1fr)}}
+.stat{
+  background:var(--white);border:1px solid var(--border);border-radius:var(--radius-sm);
+  padding:28px 18px;text-align:center;
+}
+.stat .num{display:block;font-size:1.85rem;font-weight:800;color:var(--navy-700);letter-spacing:-.03em;line-height:1.15}
+.stat .label{font-size:.76rem;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);margin-top:8px;font-weight:600}
+
+/* ---------- Criteria rows ---------- */
+.criteria-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0}
+@media(max-width:680px){.criteria-grid{grid-template-columns:1fr}}
+.criteria-item{
+  display:flex;justify-content:space-between;align-items:baseline;gap:18px;
+  padding:19px 24px;border-bottom:1px solid var(--border);
+}
+.criteria-item:nth-child(odd){border-right:1px solid var(--border)}
+@media(max-width:680px){.criteria-item:nth-child(odd){border-right:none}}
+.criteria-item .k{font-size:.78rem;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);font-weight:700}
+.criteria-item .v{font-weight:700;color:var(--heading);text-align:right;font-size:1.02rem}
+
+/* ---------- Lists ---------- */
+.check-list{list-style:none;margin:0;padding:0}
+.check-list li{display:flex;align-items:flex-start;gap:12px;padding:9px 0;color:var(--text);font-size:.96rem}
+.check-list li svg{width:19px;height:19px;flex-shrink:0;margin-top:3px;color:var(--green-600)}
+
+.steps{list-style:none;margin:0;padding:0;counter-reset:s}
+.steps li{counter-increment:s;display:flex;gap:20px;padding:22px 0;border-bottom:1px solid var(--border)}
+.steps li:last-child{border-bottom:none}
+.steps li::before{
+  content:counter(s,decimal-leading-zero);flex-shrink:0;width:42px;height:42px;border-radius:11px;
+  background:var(--blue-050);color:var(--blue-600);font-weight:800;font-size:.9rem;
+  display:flex;align-items:center;justify-content:center;
+}
+.steps h4{margin-bottom:5px}
+.steps p{font-size:.95rem}
+
+/* ---------- Profile ---------- */
+.two-col{display:grid;grid-template-columns:1.25fr .75fr;gap:44px;align-items:start}
+@media(max-width:900px){.two-col{grid-template-columns:1fr;gap:28px}}
+
+.profile-card{
+  background:linear-gradient(160deg,var(--navy-800),var(--blue-600));
+  border-radius:var(--radius);padding:34px 30px;color:#fff;box-shadow:var(--shadow-lg);
+}
+.profile-card .avatar{
+  width:74px;height:74px;border-radius:18px;background:rgba(255,255,255,.16);
+  border:1px solid rgba(255,255,255,.25);
+  display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:800;margin-bottom:16px;
+}
+.profile-card h3{color:#fff;margin-bottom:3px}
+.profile-card .role{color:#a8d0ef;font-size:.86rem;display:block;margin-bottom:20px;font-weight:500}
+.profile-card ul{list-style:none;margin:0;padding:0}
+.profile-card li{padding:12px 0;border-top:1px solid rgba(255,255,255,.16);font-size:.88rem}
+.profile-card li .k{display:block;color:rgba(255,255,255,.62);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em;font-weight:600;margin-bottom:2px}
+.profile-card li .v{color:#fff;font-weight:600}
+
+.quote{
+  background:var(--blue-050);border-left:3px solid var(--blue-600);border-radius:0 var(--radius-sm) var(--radius-sm) 0;
+  padding:26px 30px;font-size:1.12rem;color:var(--heading);font-weight:500;line-height:1.55;
+}
+
+/* ---------- Forms ---------- */
+.form-row{margin-bottom:19px}
+.form-row.split{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:600px){.form-row.split{grid-template-columns:1fr}}
+label{display:block;font-size:.83rem;font-weight:700;color:var(--heading);margin-bottom:7px;letter-spacing:.01em}
+label .opt{font-weight:400;color:var(--muted)}
+input,select,textarea{
+  width:100%;padding:13px 14px;border:1.5px solid var(--border);border-radius:9px;
+  font-size:.96rem;font-family:inherit;color:var(--text);background:#fcfdfe;transition:border-color .15s,box-shadow .15s,background .15s;
+}
+input:focus,select:focus,textarea:focus{
+  outline:none;border-color:var(--blue-600);background:#fff;box-shadow:0 0 0 3px rgba(43,96,152,.13);
+}
+textarea{resize:vertical;min-height:112px}
+.form-note{font-size:.82rem;color:var(--muted);margin-top:14px;text-align:center}
+
+.notice{
+  display:flex;gap:14px;background:var(--green-050);border:1px solid #cfe7d9;
+  border-radius:var(--radius-sm);padding:19px 22px;margin-bottom:28px;
+}
+.notice svg{width:24px;height:24px;color:var(--green-600);flex-shrink:0}
+.notice p{margin:0;color:var(--text);font-size:.92rem}
+.notice strong{color:var(--heading)}
+
+.form-status{margin-top:16px;padding:14px 16px;border-radius:9px;font-size:.92rem;display:none}
+.form-status.success{display:block;background:var(--green-050);color:var(--green-600);border:1px solid #bfe0cd;font-weight:500}
+.form-status.error{display:block;background:#fdecec;color:#a3312b;border:1px solid #f5c9c6}
+.form-status.sending{display:block;background:var(--bg-deep);color:var(--muted)}
+
+/* ---------- CTA band ---------- */
+.cta-band{
+  background:linear-gradient(158deg,var(--navy-900),var(--navy-700) 60%,var(--blue-600));
+  color:#fff;padding:66px 0;text-align:center;
+}
+.cta-band h2{color:#fff}
+.cta-band p{color:rgba(255,255,255,.8);max-width:560px;margin:0 auto}
+
+/* ---------- Footer ---------- */
+.site-footer{background:var(--navy-900);color:rgba(255,255,255,.6);padding:52px 0 26px;font-size:.9rem}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:38px;margin-bottom:34px}
+@media(max-width:760px){.footer-grid{grid-template-columns:1fr;gap:26px}}
+.footer-grid h4{color:#fff;font-size:.76rem;text-transform:uppercase;letter-spacing:.11em;margin-bottom:15px;font-weight:700}
+.footer-grid ul{list-style:none;margin:0;padding:0}
+.footer-grid li{margin-bottom:9px}
+.footer-grid a{transition:color .15s}
+.footer-grid a:hover{color:#8fc3ee}
+.footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:13px}
+.footer-brand .mark{width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.82rem;color:#fff}
+.footer-brand strong{color:#fff;font-size:.98rem}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.13);padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.84rem}
+
+.text-center{text-align:center}
+</style>
 </head>
 <body>
 <header class="site-header">
   <div class="container">
-    <a href="/" class="brand">
+    <a href="index.html" class="brand">
       <span class="mark">CJ</span>
-      <span class="brand-text">CJ Business Acquisitions
+      <span class="brand-text">
+        <span class="name">CJ Business Acquisitions</span>
         <span class="sub">Engineering &amp; Manufacturing</span>
       </span>
     </a>
-    <nav class="main-nav" id="main-nav">
-      <a href="index.html">Home</a>
-          <a href="about.html">About Us</a>
-          <a href="investment-criteria.html" aria-current="page">Investment Criteria</a>
-          <a href="for-business-owners.html">For Business Owners</a>
-          <a href="contact.html">Contact</a>
+    <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="investment-criteria.html" aria-current="page">Investment Criteria</a>
+        <a href="for-business-owners.html">For Business Owners</a>
+        <a href="contact.html">Contact</a>
       <a href="submit-a-business.html" class="nav-cta">Sell Your Business</a>
     </nav>
-    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round"/></svg>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg>
     </button>
   </div>
 </header>
@@ -38,43 +347,26 @@
   <div class="container">
     <div class="eyebrow on-dark">Acquisition Buy Box</div>
     <h1>What We Look For in a Business</h1>
-    <p class="sub">Piedmont Triad, North Carolina &middot; Lower Middle Market &middot; Engineering &amp; Manufacturing</p>
+    <p class="sub">Piedmont Triad, North Carolina &middot; Lower Middle Market &middot; Durable Cash Flow</p>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <table class="criteria-table">
-      <tr><th>EBITDA</th><td>$750,000 to $3,000,000</td></tr>
-      <tr><th>EBITDA Margin</th><td>15% minimum</td></tr>
-      <tr><th>Operating History</th><td>5+ years</td></tr>
-      <tr><th>Customer Concentration</th><td>20% maximum from any single customer</td></tr>
-      <tr><th>Geography</th><td>Piedmont Triad area of North Carolina</td></tr>
-      <tr><th>Sectors</th><td>Engineering and manufacturing industries</td></tr>
-      <tr><th>Financial Profile</th><td>Clean reporting, reliable cash flow</td></tr>
-      <tr><th>Transition</th><td>6 to 12 month owner transition preferred</td></tr>
-    </table>
-  </div>
-</section>
-
-<section class="section-alt">
-  <div class="container">
-    <div class="section-head center">
-      <div class="eyebrow">Owner Situations</div>
-      <h2>Situations We Understand Well</h2>
-    </div>
-    <div class="grid grid-3">
-      <div class="card">
-        <h4>01 &middot; Retiring Owner</h4>
-        <p>No internal successor in place, and looking for a smooth, respectful transition for employees and customers.</p>
+    <div class="panel">
+      <div class="panel-head">
+        <h2>Financial &amp; Operating Criteria</h2>
+        <p>If your company generally fits this profile, or is close, we would welcome hearing from you.</p>
       </div>
-      <div class="card">
-        <h4>02 &middot; Second-Generation Exit</h4>
-        <p>A family business where the next generation is ready to pursue a different path.</p>
-      </div>
-      <div class="card">
-        <h4>03 &middot; Corporate or PE Carve-Out</h4>
-        <p>A non-core division or portfolio company that would benefit from focused, independent ownership.</p>
+      <div class="criteria-grid">
+        <div class="criteria-item"><span class="k">EBITDA</span><span class="v">$750,000 &ndash; $3,000,000</span></div>
+        <div class="criteria-item"><span class="k">EBITDA Margin</span><span class="v">15% minimum</span></div>
+        <div class="criteria-item"><span class="k">Operating History</span><span class="v">5+ years</span></div>
+        <div class="criteria-item"><span class="k">Customer Concentration</span><span class="v">20% maximum</span></div>
+        <div class="criteria-item"><span class="k">Geography</span><span class="v">Piedmont Triad, North Carolina</span></div>
+        <div class="criteria-item"><span class="k">Sectors</span><span class="v">Engineering &amp; Manufacturing</span></div>
+        <div class="criteria-item"><span class="k">Financial Profile</span><span class="v">Clean reporting, reliable cash flow</span></div>
+        <div class="criteria-item"><span class="k">Transition</span><span class="v">6 to 12 months preferred</span></div>
       </div>
     </div>
   </div>
@@ -82,25 +374,44 @@
 
 <section>
   <div class="container">
-    <div class="section-head center">
-      <div class="eyebrow">Sectors of Focus</div>
-      <h2>Industries We Target</h2>
-    </div>
-    <div class="grid grid-4">
-      <div class="card"><h4>Manufacturing</h4><p>Precision, industrial, and process manufacturers with established operations.</p></div>
-      <div class="card"><h4>Engineering</h4><p>Engineering services and technical firms supporting industrial clients.</p></div>
-      <div class="card"><h4>Industrial Services</h4><p>Services businesses supporting manufacturers and industrial customers.</p></div>
-      <div class="card"><h4>Related B2B</h4><p>Complementary B2B businesses that serve manufacturing or engineering companies.</p></div>
+    <div class="panel">
+      <div class="panel-head">
+        <h2>Sectors of Focus</h2>
+        <p>Engineering and manufacturing industries, plus the businesses that serve them.</p>
+      </div>
+      <div class="grid grid-4">
+        <div class="card"><h4><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l5 3.5V10l5 3.5V10l5 3.5V21z"/><path d="M18 10V4h3v17"/><path d="M3 21h18"/></svg></span>Manufacturing</h4><p>Precision, industrial, and process manufacturers with established operations and repeat customers.</p></div>
+        <div class="card"><h4><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 01-5 5L5 16v3h3l4.7-4.7a4 4 0 015-5l-2.3-2.3 2.1-2.1a4 4 0 00-2.8 1.4z"/></svg></span>Engineering</h4><p>Engineering services and technical firms supporting industrial and commercial clients.</p></div>
+        <div class="card"><h4><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21a9 9 0 100-18 9 9 0 000 18z"/><path d="M12 12l4-4"/><path d="M12 12h.01"/></svg></span>Industrial Services</h4><p>Services businesses supporting manufacturers and industrial customers.</p></div>
+        <div class="card"><h4><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg></span>Related B2B</h4><p>Complementary B2B businesses that serve manufacturing or engineering companies.</p></div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section-navy">
-  <div class="container text-center">
-    <div class="eyebrow on-dark">Durable Cash Flow, Thoughtful Next Chapter</div>
+<section>
+  <div class="container">
+    <div class="panel">
+      <div class="panel-head">
+        <h2>Owner Situations</h2>
+        <p>The circumstances where an operator-led buyer tends to be the right fit.</p>
+      </div>
+      <div class="grid grid-3">
+        <div class="card blue-top"><h4><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 1.9"/></svg></span>01 &middot; Retiring Owner</h4><p>No internal successor in place, and a priority on a respectful transition for employees and customers.</p></div>
+        <div class="card blue-top"><h4><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="3.2"/><path d="M22 20v-2a4 4 0 00-3-3.9"/><path d="M16 3.6a4 4 0 010 7"/></svg></span>02 &middot; Second-Generation Exit</h4><p>A family business where the next generation is ready to pursue a different path.</p></div>
+        <div class="card blue-top"><h4><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg></span>03 &middot; Corporate or PE Carve-Out</h4><p>A non-core division or portfolio company that deserves focused, independent ownership.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
     <h2>Is Your Business a Fit?</h2>
-    <p style="max-width:560px;margin:0 auto 30px;">If your company generally fits this profile &mdash; or is close &mdash; we'd still welcome hearing from you. Every situation is unique.</p>
-    <a href="submit-a-business.html" class="btn btn-primary">Submit Your Business Confidentially</a>
+    <p>Proprietary and off-market opportunities are especially welcome. Every situation is unique.</p>
+    <div class="cta-row">
+      <a href="submit-a-business.html" class="btn btn-primary">Submit Your Business Confidentially</a>
+    </div>
   </div>
 </section>
 <footer class="site-footer">
@@ -108,18 +419,16 @@
     <div class="footer-grid">
       <div>
         <div class="footer-brand">
-          <span class="mark" style="width:30px;height:30px;font-size:0.85rem;">CJ</span>
-          <strong style="color:#fff;font-family:'Source Serif 4',serif;font-size:1rem;">CJ Business Acquisitions</strong>
+          <span class="mark">CJ</span>
+          <strong>CJ Business Acquisitions</strong>
         </div>
-        <p style="max-width:320px;color:rgba(255,255,255,0.55);">
-          Acquiring and operating established engineering and manufacturing businesses in North Carolina's Piedmont Triad, with continuity for the people and customers already there.
-        </p>
+        <p style="max-width:330px;color:rgba(255,255,255,.6)">Acquiring and operating established engineering and manufacturing businesses in North Carolina's Piedmont Triad, with continuity for the people and customers already there.</p>
       </div>
       <div>
         <h4>Navigate</h4>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
+          <li><a href="about.html">About</a></li>
           <li><a href="investment-criteria.html">Investment Criteria</a></li>
           <li><a href="for-business-owners.html">For Business Owners</a></li>
           <li><a href="submit-a-business.html">Submit a Business</a></li>
@@ -131,17 +440,54 @@
         <ul>
           <li><a href="mailto:cjohnson@cjbusinessacquisitions.com">cjohnson@cjbusinessacquisitions.com</a></li>
           <li><a href="tel:+17402381005">740-238-1005</a></li>
-          <li><a href="https://www.linkedin.com/in/chad-johnson-782990149" target="_blank" rel="noopener">LinkedIn Profile</a></li>
+          <li><a href="https://www.linkedin.com/in/chad-johnson-782990149" target="_blank" rel="noopener">LinkedIn</a></li>
           <li>Piedmont Triad, North Carolina</li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <span>&copy; <span id="year"></span> CJ Business Acquisitions. All rights reserved.</span>
-      <span>All inquiries are held in strict confidence.</span>
+      <span>All inquiries held in strict confidence.</span>
     </div>
   </div>
 </footer>
-<script src="/js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  var t=document.querySelector('.nav-toggle'),n=document.querySelector('.main-nav');
+  if(t&&n){
+    t.addEventListener('click',function(){
+      var o=n.classList.toggle('open');
+      t.setAttribute('aria-expanded',o?'true':'false');
+    });
+    n.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click',function(){n.classList.remove('open');t.setAttribute('aria-expanded','false');});
+    });
+  }
+  var y=document.getElementById('year');
+  if(y)y.textContent=new Date().getFullYear();
+
+  var form=document.querySelector('form[data-web3forms]');
+  if(!form)return;
+  var status=form.querySelector('.form-status');
+  var btn=form.querySelector('button[type="submit"]');
+  var label=btn?btn.textContent:'';
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(status){status.className='form-status sending';status.textContent='Sending, please wait...';}
+    if(btn){btn.disabled=true;btn.textContent='Sending...';}
+    fetch('https://api.web3forms.com/submit',{method:'POST',headers:{Accept:'application/json'},body:new FormData(form)})
+      .then(function(r){return r.json();})
+      .then(function(d){
+        if(!d.success)throw new Error('failed');
+        if(status){status.className='form-status success';status.textContent='Thank you \u2014 your submission was received. We will be in touch shortly.';}
+        form.reset();
+      })
+      .catch(function(){
+        if(status){status.className='form-status error';status.textContent='Something went wrong. Please email us directly at cjohnson@cjbusinessacquisitions.com.';}
+      })
+      .finally(function(){if(btn){btn.disabled=false;btn.textContent=label;}});
+  });
+});
+</script>
 </body>
 </html>
