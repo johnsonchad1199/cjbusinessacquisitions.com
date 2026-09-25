@@ -1,3 +1,7 @@
 {
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/buying-process", "destination": "/for-business-owners.html#buying-process", "permanent": true },
+    { "source": "/buying-process.html", "destination": "/for-business-owners.html#buying-process", "permanent": true }
+  ]
 }
