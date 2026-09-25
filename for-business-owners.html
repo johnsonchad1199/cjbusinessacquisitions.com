@@ -84,7 +84,7 @@ p:last-child{margin-bottom:0}
 .brand-text .name{font-weight:700;color:var(--heading);font-size:1.02rem;letter-spacing:-.02em}
 .brand-text .sub{font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);font-weight:600}
 
-.main-nav{display:flex;align-items:center;gap:28px}
+.main-nav{display:flex;align-items:center;gap:24px}
 .main-nav a{font-size:.92rem;font-weight:500;color:var(--text);transition:color .15s;position:relative;padding:4px 0}
 .main-nav a:hover{color:var(--blue-600)}
 .main-nav a[aria-current="page"]{color:var(--blue-600);font-weight:600}
@@ -102,7 +102,7 @@ p:last-child{margin-bottom:0}
 .nav-toggle{display:none;background:none;border:none;color:var(--heading);cursor:pointer;padding:8px;margin-right:-8px}
 .nav-toggle svg{width:26px;height:26px}
 
-@media(max-width:900px){
+@media(max-width:1080px){
   .main-nav{
     position:fixed;top:72px;left:0;right:0;background:#fff;flex-direction:column;align-items:stretch;
     gap:0;padding:6px 22px 18px;box-shadow:var(--shadow-lg);border-bottom:1px solid var(--border);
@@ -316,6 +316,64 @@ textarea{resize:vertical;min-height:112px}
 .footer-brand strong{color:#fff;font-size:.98rem}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.13);padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.84rem}
 
+
+/* ---------- Buying process timeline ---------- */
+.phase + .phase{margin-top:30px}
+.phase-label{
+  display:block;text-transform:uppercase;letter-spacing:.32em;font-weight:800;
+  font-size:.95rem;color:var(--heading);margin-bottom:10px;
+}
+.phase-title{
+  font-size:clamp(1.9rem,4.4vw,3.1rem);font-weight:800;text-transform:uppercase;
+  letter-spacing:-.025em;line-height:1.02;margin:0 0 46px;color:var(--heading);
+}
+.phase-title .accent{color:var(--blue-600)}
+.timeline{list-style:none;margin:0;padding:0;display:flex;align-items:flex-start}
+.timeline .step{flex:1 1 0;min-width:0;text-align:center;display:flex;flex-direction:column;align-items:center}
+.timeline .box{
+  width:78px;height:78px;border-radius:16px;background:var(--bg-deep);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;font-size:1.9rem;font-weight:800;
+  color:var(--heading);letter-spacing:-.02em;flex-shrink:0;
+  transition:transform .2s,box-shadow .2s;
+}
+.timeline .step:hover .box{transform:translateY(-3px);box-shadow:var(--shadow)}
+.timeline .step.final .box{
+  background:linear-gradient(150deg,var(--navy-700),var(--blue-600));border-color:transparent;
+  color:#fff;box-shadow:0 10px 26px rgba(30,73,118,.32);
+}
+.timeline .arrow{
+  flex:0 0 38px;height:78px;display:flex;align-items:center;justify-content:center;color:var(--blue-600);
+}
+.timeline .arrow svg{width:38px;height:16px}
+.timeline .name{
+  margin-top:20px;font-size:.84rem;font-weight:800;text-transform:uppercase;letter-spacing:.03em;
+  color:var(--heading);line-height:1.25;min-height:2.5em;display:flex;align-items:center;justify-content:center;
+}
+.timeline .rule{width:38px;height:2px;background:var(--blue-600);border-radius:2px;margin:12px 0 12px}
+.timeline .desc{font-size:.93rem;color:var(--muted);line-height:1.45;margin:0;padding:0 4px}
+@media(max-width:860px){
+  .timeline{flex-direction:column;align-items:stretch}
+  .timeline .step{flex-direction:row;text-align:left;align-items:center;gap:18px}
+  .timeline .box{width:62px;height:62px;font-size:1.5rem;border-radius:14px}
+  .timeline .text{display:flex;flex-direction:column;align-items:flex-start}
+  .timeline .name{margin-top:0;min-height:0;justify-content:flex-start}
+  .timeline .rule{margin:8px 0}
+  .timeline .desc{padding:0}
+  .timeline .arrow{flex:0 0 auto;height:34px;width:62px;transform:rotate(90deg)}
+  .timeline .arrow svg{width:26px}
+}
+@media(min-width:861px){.timeline .text{display:contents}}
+
+.fund-callout{
+  display:flex;gap:18px;align-items:flex-start;background:var(--green-050);border:1px solid #cfe7d9;
+  border-radius:var(--radius-sm);padding:24px 26px;margin-top:26px;
+}
+.fund-callout svg{width:28px;height:28px;color:var(--green-600);flex-shrink:0;margin-top:2px}
+.fund-callout h4{margin-bottom:4px}
+.fund-callout p{margin:0;color:var(--text)}
+
+.criteria-note{margin:18px 24px 0;font-size:.88rem;color:var(--muted)}
+.criteria-note strong{color:var(--heading)}
 .text-center{text-align:center}
 </style>
 </head>
@@ -330,9 +388,9 @@ textarea{resize:vertical;min-height:112px}
       </span>
     </a>
     <nav class="main-nav">
-        <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="investment-criteria.html">Investment Criteria</a>
+        <a href="buying-process.html">Buying Process</a>
         <a href="for-business-owners.html" aria-current="page">For Business Owners</a>
         <a href="contact.html">Contact</a>
       <a href="submit-a-business.html" class="nav-cta">Sell Your Business</a>
@@ -393,7 +451,7 @@ textarea{resize:vertical;min-height:112px}
         <div>
           <div class="eyebrow">Brokers &amp; Intermediaries</div>
           <h2>Working With Advisors</h2>
-          <p class="lede">We welcome hearing from business brokers, M&amp;A advisors, and other intermediaries representing sellers in the Piedmont Triad's engineering and manufacturing sectors.</p>
+          <p class="lede">We welcome hearing from business brokers, M&amp;A advisors, and other intermediaries representing sellers in North Carolina's engineering and manufacturing sectors.</p>
           <ul class="check-list" style="margin-top:18px">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5 10-11"/></svg><span>We move efficiently and communicate directly</span></li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5 10-11"/></svg><span>We respect the confidentiality your clients expect</span></li>
@@ -429,7 +487,7 @@ textarea{resize:vertical;min-height:112px}
           <span class="mark">CJ</span>
           <strong>CJ Business Acquisitions</strong>
         </div>
-        <p style="max-width:330px;color:rgba(255,255,255,.6)">Acquiring and operating established engineering and manufacturing businesses in North Carolina's Piedmont Triad, with continuity for the people and customers already there.</p>
+        <p style="max-width:330px;color:rgba(255,255,255,.6)">Acquiring and operating established engineering and manufacturing businesses in North Carolina, with continuity for the people and customers already there.</p>
       </div>
       <div>
         <h4>Navigate</h4>
@@ -437,6 +495,7 @@ textarea{resize:vertical;min-height:112px}
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="investment-criteria.html">Investment Criteria</a></li>
+          <li><a href="buying-process.html">Our Buying Process</a></li>
           <li><a href="for-business-owners.html">For Business Owners</a></li>
           <li><a href="submit-a-business.html">Submit a Business</a></li>
           <li><a href="contact.html">Contact</a></li>
@@ -448,7 +507,7 @@ textarea{resize:vertical;min-height:112px}
           <li><a href="mailto:cjohnson@cjbusinessacquisitions.com">cjohnson@cjbusinessacquisitions.com</a></li>
           <li><a href="tel:+17402381005">740-238-1005</a></li>
           <li><a href="https://www.linkedin.com/in/chad-johnson-782990149" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li>Piedmont Triad, North Carolina</li>
+          <li>North Carolina</li>
         </ul>
       </div>
     </div>
