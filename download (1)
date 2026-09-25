@@ -1,0 +1,4 @@
+# Keep source, tests, and docs out of the public deployment
+src/
+*.md
+.gitignore

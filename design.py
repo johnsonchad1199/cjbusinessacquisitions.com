@@ -1,30 +1,70 @@
-<!DOCTYPE html>
-<html lang="en" data-theme-pref="system">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CJ Business Acquisitions | Buying NC Manufacturing Businesses</title>
-<meta name="description" content="We acquire and operate established engineering and manufacturing businesses in North Carolina, with continuity for employees and customers.">
-<meta name="robots" content="index,follow">
-<link rel="canonical" href="https://www.cjbusinessacquisitions.com/">
-<meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#0d1f33">
-<meta name="format-detection" content="telephone=no">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="preload" href="/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="CJ Business Acquisitions">
-<meta property="og:title" content="CJ Business Acquisitions | Buying NC Manufacturing Businesses">
-<meta property="og:description" content="We acquire and operate established engineering and manufacturing businesses in North Carolina, with continuity for employees and customers.">
-<meta property="og:url" content="https://www.cjbusinessacquisitions.com/">
-<meta property="og:image" content="https://www.cjbusinessacquisitions.com/og-image.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="CJ Business Acquisitions: acquiring established engineering and manufacturing businesses in North Carolina">
-<meta name="twitter:card" content="summary_large_image">
-<script>(function(){var d=document.documentElement,p='system';try{p=localStorage.getItem('theme')||'system'}catch(e){}if(p!=='light'&&p!=='dark')p='system';var dark=p==='dark'||(p==='system'&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches);d.setAttribute('data-theme',dark?'dark':'light');d.setAttribute('data-theme-pref',p)})();</script>
-<style>@font-face{font-family:"Inter";font-style:normal;font-weight:100 900;font-display:swap;src:url("/inter-var-latin.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+# -*- coding: utf-8 -*-
+"""Design system for cjbusinessacquisitions.com.
+
+Everything visual lives here: design tokens (light + dark), component CSS,
+the two inline scripts, the SVG icon set, and the shared header/footer.
+
+CSS and JS are inlined into every page on purpose: the site is deployed by
+uploading files through GitHub's web UI, and inlining means a page can never
+render unstyled because a separate asset failed to upload. The Content-
+Security-Policy stays strict anyway: build.py hashes each inline block and
+writes the hashes into vercel.json.
+"""
+
+SITE_URL = "https://www.cjbusinessacquisitions.com"
+SITE_NAME = "CJ Business Acquisitions"
+EMAIL = "cjohnson@cjbusinessacquisitions.com"
+PHONE_DISPLAY = "740-238-1005"
+PHONE_TEL = "+17402381005"
+LINKEDIN = "https://www.linkedin.com/in/chad-johnson-782990149"
+
+# ---------------------------------------------------------------------------
+# Icons — 24x24 stroke icons. All decorative (aria-hidden) unless noted.
+# ---------------------------------------------------------------------------
+_S = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">'
+ICONS = {
+    "gauge": _S + '<path d="M12 21a9 9 0 100-18 9 9 0 000 18z"/><path d="M12 12l4-4"/><path d="M12 12h.01"/></svg>',
+    "wrench": _S + '<path d="M14.7 6.3a4 4 0 01-5 5L5 16v3h3l4.7-4.7a4 4 0 015-5l-2.3-2.3 2.1-2.1a4 4 0 00-2.8 1.4z"/></svg>',
+    "chart": _S + '<path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg>',
+    "users": _S + '<path d="M16 20v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="3.2"/><path d="M22 20v-2a4 4 0 00-3-3.9"/><path d="M16 3.6a4 4 0 010 7"/></svg>',
+    "clock": _S + '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 1.9"/></svg>',
+    "factory": _S + '<path d="M3 21V10l5 3.5V10l5 3.5V10l5 3.5V21z"/><path d="M18 10V4h3v17"/><path d="M3 21h18"/></svg>',
+    "compass": _S + '<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg>',
+    "handshake": _S + '<path d="M11 17l2 2a1.4 1.4 0 002-2"/><path d="M13 15l3 3a1.4 1.4 0 002-2l-5-5"/><path d="M3 10l3-3 4 1 4-1 3 3"/><path d="M6 7v7l3 3"/></svg>',
+    "layers": _S + '<path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg>',
+    "lock": _S + '<rect x="4.5" y="10.5" width="15" height="9.5" rx="2"/><path d="M8 10.5V7a4 4 0 018 0v3.5"/></svg>',
+    "check": _S.replace('stroke-width="1.75"', 'stroke-width="2.25"') + '<path d="M4.5 12.5l5 5 10-11"/></svg>',
+    "mail": _S + '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5l8.5 6 8.5-6"/></svg>',
+    "phone": _S + '<path d="M6 3h3l2 5-2.5 1.5a12 12 0 005 5L15 12l5 2v3a2 2 0 01-2.2 2A16.5 16.5 0 014 6.2 2 2 0 016 3z"/></svg>',
+    "pin": _S + '<path d="M12 21s7-5.7 7-11a7 7 0 10-14 0c0 5.3 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>',
+    "linkedin": _S + '<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10.5V16"/><path d="M8 7.6v.01"/><path d="M12 16v-3.2a2.3 2.3 0 014.6 0V16"/><path d="M12 10.5V16"/></svg>',
+    "bank": _S + '<path d="M3 9.5L12 4l9 5.5"/><path d="M5 10v8M9.5 10v8M14.5 10v8M19 10v8"/><path d="M3 20.5h18"/></svg>',
+    "coins": _S + '<ellipse cx="9" cy="6.5" rx="6" ry="2.5"/><path d="M3 6.5v4c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5v-4"/><path d="M9 17c-3.3 0-6-1.1-6-2.5v-4"/><ellipse cx="15.5" cy="14.5" rx="5.5" ry="2.3"/><path d="M10 14.5v3.2c0 1.3 2.5 2.3 5.5 2.3s5.5-1 5.5-2.3v-3.2"/></svg>',
+    "doc": _S + '<path d="M14 3H6.5A1.5 1.5 0 005 4.5v15A1.5 1.5 0 006.5 21h11a1.5 1.5 0 001.5-1.5V8z"/><path d="M14 3v5h5"/><path d="M8.5 13h7M8.5 16.5h5"/></svg>',
+    "shield": _S + '<path d="M12 3l7 3v6c0 4.4-3 8.3-7 9.4-4-1.1-7-5-7-9.4V6l7-3z"/><path d="M9.2 12.2l2 2 3.6-3.8"/></svg>',
+    "arrow": '<svg viewBox="0 0 40 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 8h34"/><path d="M30 2.5L36.5 8 30 13.5"/></svg>',
+    "arrow-right": _S + '<path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>',
+    "sun": _S + '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>',
+    "moon": _S + '<path d="M20 14.5A8.5 8.5 0 019.5 4a8.5 8.5 0 1010.5 10.5z"/></svg>',
+    "monitor": _S + '<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>',
+    "menu": _S.replace('stroke-width="1.75"', 'stroke-width="2"') + '<path d="M4 7h16M4 12h16M4 17h16"/></svg>',
+    "close": _S.replace('stroke-width="1.75"', 'stroke-width="2"') + '<path d="M6 6l12 12M18 6L6 18"/></svg>',
+    "alert": _S + '<circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5"/><path d="M12 16.5v.01"/></svg>',
+    "check-circle": _S + '<circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16 9.8"/></svg>',
+}
+
+
+def render_icons(html):
+    for key, svg in ICONS.items():
+        html = html.replace("[[ICON:%s]]" % key, svg)
+    return html
+
+
+# ---------------------------------------------------------------------------
+# Design tokens + component styles
+# ---------------------------------------------------------------------------
+CSS = r"""
+@font-face{font-family:"Inter";font-style:normal;font-weight:100 900;font-display:swap;src:url("/inter-var-latin.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 
 /* ---------- Tokens: light (default) ---------- */
 :root{
@@ -381,174 +421,17 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:none;bor
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
 }
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
-@media print{.site-header,.site-footer,.cta-band,.nav-toggle{display:none!important}body{background:#fff;color:#000}}</style>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.cjbusinessacquisitions.com/#org","name":"CJ Business Acquisitions","url":"https://www.cjbusinessacquisitions.com/","email":"cjohnson@cjbusinessacquisitions.com","telephone":"+17402381005","logo":"https://www.cjbusinessacquisitions.com/apple-touch-icon.png","areaServed":{"@type":"State","name":"North Carolina"},"description":"Acquires and operates established engineering and manufacturing businesses in North Carolina.","founder":{"@type":"Person","name":"Chad Johnson","jobTitle":"Principal","sameAs":["https://www.linkedin.com/in/chad-johnson-782990149"]}},{"@type":"WebSite","@id":"https://www.cjbusinessacquisitions.com/#website","url":"https://www.cjbusinessacquisitions.com/","name":"CJ Business Acquisitions","publisher":{"@id":"https://www.cjbusinessacquisitions.com/#org"}}]}</script>
-</head>
-<body>
-<a class="skip-link" href="#main">Skip to main content</a>
-<header class="site-header">
-  <div class="container header-inner">
-    <a href="/" class="brand" aria-label="CJ Business Acquisitions, home">
-      <span class="brand-mark" aria-hidden="true">CJ</span>
-      <span class="brand-name" aria-hidden="true"><b>CJ Business Acquisitions</b><span>Engineering &amp; Manufacturing</span></span>
-    </a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
-      <span class="icon-open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span><span class="icon-close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></span>
-    </button>
-    <nav class="nav" id="site-nav" aria-label="Main">
-      <ul class="nav-links">
-        <li><a href="/about.html">About</a></li>
-        <li><a href="/investment-criteria.html">Investment Criteria</a></li>
-        <li><a href="/for-business-owners.html">For Business Owners</a></li>
-        <li><a href="/contact.html">Contact</a></li>
-      </ul>
-      <div class="nav-extra">
-        <div class="theme-row"><span class="theme-label" aria-hidden="true">Theme</span><div class="theme-switch" role="group" aria-label="Color theme">
-          <button type="button" data-theme-set="light" aria-pressed="false" title="Light theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><span class="visually-hidden">Light theme</span></button>
-          <button type="button" data-theme-set="dark" aria-pressed="false" title="Dark theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 14.5A8.5 8.5 0 019.5 4a8.5 8.5 0 1010.5 10.5z"/></svg><span class="visually-hidden">Dark theme</span></button>
-          <button type="button" data-theme-set="system" aria-pressed="false" title="Match system"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg><span class="visually-hidden">Match system setting</span></button>
-        </div></div>
-        <a href="/submit-a-business.html" class="btn">Sell Your Business</a>
-      </div>
-    </nav>
-  </div>
-</header>
-<main id="main" tabindex="-1">
+@media print{.site-header,.site-footer,.cta-band,.nav-toggle{display:none!important}body{background:#fff;color:#000}}
+"""
 
-<section class="hero" aria-labelledby="hero-title">
-  <div class="container hero-grid">
-    <div>
-      <span class="eyebrow">Operator-led &middot; Confidential</span>
-      <h1 id="hero-title">Acquiring Established Manufacturing &amp; Engineering Businesses in North Carolina</h1>
-      <p class="hero-lead">Operator-led acquisitions with continuity for the people and customers already there &mdash; preserving what makes a business work while investing in what comes next.</p>
-      <div class="hero-actions">
-        <a href="/submit-a-business.html" class="btn btn-light btn-lg">Submit Your Business Confidentially</a>
-        <a href="/investment-criteria.html" class="btn btn-ghost-light btn-lg">View Investment Criteria</a>
-      </div>
-    </div>
-    <aside class="hero-panel" aria-labelledby="why-title">
-      <h2 id="why-title">What owners can expect</h2>
-      <ul>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4.5" y="10.5" width="15" height="9.5" rx="2"/><path d="M8 10.5V7a4 4 0 018 0v3.5"/></svg><span><b>Confidential from the first contact</b>No outreach to your employees, customers, or competitors without your permission.</span></li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14.7 6.3a4 4 0 01-5 5L5 16v3h3l4.7-4.7a4 4 0 015-5l-2.3-2.3 2.1-2.1a4 4 0 00-2.8 1.4z"/></svg><span><b>An operator, not a flipper</b>Hands-on manufacturing and engineering experience.</span></li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 20v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="3.2"/><path d="M22 20v-2a4 4 0 00-3-3.9"/><path d="M16 3.6a4 4 0 010 7"/></svg><span><b>Continuity for your team</b>Your people and customer relationships stay at the center.</span></li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 3H6.5A1.5 1.5 0 005 4.5v15A1.5 1.5 0 006.5 21h11a1.5 1.5 0 001.5-1.5V8z"/><path d="M14 3v5h5"/><path d="M8.5 13h7M8.5 16.5h5"/></svg><span><b>Proof of funds with every LOI</b>Equity, SBA, and seller financing.</span></li>
-      </ul>
-    </aside>
-  </div>
-</section>
+# ---------------------------------------------------------------------------
+# Inline scripts
+# ---------------------------------------------------------------------------
+# Runs in <head> before first paint so the page never flashes the wrong theme.
+HEAD_JS = "(function(){var d=document.documentElement,p='system';try{p=localStorage.getItem('theme')||'system'}catch(e){}if(p!=='light'&&p!=='dark')p='system';var dark=p==='dark'||(p==='system'&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches);d.setAttribute('data-theme',dark?'dark':'light');d.setAttribute('data-theme-pref',p)})();"
 
-<section class="section-tight" aria-label="At a glance">
-  <div class="container">
-    <dl class="stats">
-      <div class="stat"><dt>Years in manufacturing &amp; engineering</dt><dd>8+</dd></div>
-      <div class="stat"><dt>Industrial manufacturers</dt><dd>3</dd></div>
-      <div class="stat"><dt>Years combined M&amp;A support</dt><dd>30+</dd></div>
-      <div class="stat"><dt>Target adjusted EBITDA</dt><dd>$500K&ndash;$1.5M</dd></div>
-    </dl>
-  </div>
-</section>
-
-<section class="section" aria-labelledby="profile-title">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Buyer Profile</span>
-      <h2 id="profile-title">An operator's approach to acquisitions</h2>
-      <p>CJ Business Acquisitions is led by Chad Johnson, a mechanical engineer and manufacturing operator with more than eight years across three industrial manufacturers. We look beyond the financial statements to the people, processes, equipment, and customer relationships that actually drive cash flow.</p>
-    </div>
-    <div class="grid grid-4">
-      <article class="card"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14.7 6.3a4 4 0 01-5 5L5 16v3h3l4.7-4.7a4 4 0 015-5l-2.3-2.3 2.1-2.1a4 4 0 00-2.8 1.4z"/></svg></div><h3>Operator Background</h3><p>Hands-on manufacturing and engineering experience &mdash; not a financial buyer looking for a quick resale.</p></article>
-      <article class="card"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg></div><h3>Data-Driven</h3><p>Process improvement and data analysis used to find real operational value, not just cost cutting.</p></article>
-      <article class="card"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 20v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="3.2"/><path d="M22 20v-2a4 4 0 00-3-3.9"/><path d="M16 3.6a4 4 0 010 7"/></svg></div><h3>Continuity First</h3><p>Preserving your employees, your customer relationships, and the reputation you built.</p></article>
-      <article class="card"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M11 17l2 2a1.4 1.4 0 002-2"/><path d="M13 15l3 3a1.4 1.4 0 002-2l-5-5"/><path d="M3 10l3-3 4 1 4-1 3 3"/><path d="M6 7v7l3 3"/></svg></div><h3>Experienced Support</h3><p>Backed by a team bringing more than 30 years of combined M&amp;A experience.</p></article>
-    </div>
-  </div>
-</section>
-
-<section class="section section-alt" aria-labelledby="buybox-title">
-  <div class="container">
-    <div class="split">
-      <div class="section-head">
-        <span class="eyebrow">Acquisition Buy Box</span>
-        <h2 id="buybox-title">What we look for</h2>
-        <p>North Carolina &middot; Lower middle market &middot; Engineering and manufacturing. If your company is close to this profile, we would still like to hear from you.</p>
-        <a class="text-link" href="/investment-criteria.html">See full investment criteria <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
-      </div>
-      <div class="panel">
-        <dl class="criteria"><div><dt>Adjusted EBITDA</dt><dd>$500K &ndash; $1.5M</dd></div><div><dt>EBITDA margin</dt><dd>15% minimum</dd></div><div><dt>Operating history</dt><dd>5+ years</dd></div><div><dt>Customer concentration</dt><dd>20% maximum</dd></div><div><dt>Geography</dt><dd>North Carolina</dd></div><div><dt>Transition</dt><dd>6 to 12 months</dd></div><div><dt>Debt service coverage ratio</dt><dd>1.5x+</dd></div><div><dt>Cash in business at close</dt><dd>1.86x equity injection</dd></div></dl>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" aria-labelledby="situations-title">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Owner Situations</span>
-      <h2 id="situations-title">Situations we understand</h2>
-      <p>Every situation is different, but these are the circumstances we most often work with.</p>
-    </div>
-    <div class="grid grid-3">
-      <article class="card"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 1.9"/></svg></div><h3>Retiring Owner</h3><p>You have built something valuable, there is no internal successor, and you want a smooth transition for the team and customers you care about.</p></article>
-      <article class="card"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 20v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="3.2"/><path d="M22 20v-2a4 4 0 00-3-3.9"/><path d="M16 3.6a4 4 0 010 7"/></svg></div><h3>Second-Generation Exit</h3><p>The next generation is ready to pursue a different path, and the business needs ownership prepared to carry it forward.</p></article>
-      <article class="card"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg></div><h3>Corporate or PE Carve-Out</h3><p>A non-core division or portfolio company that would benefit from focused, independent, hands-on ownership.</p></article>
-    </div>
-  </div>
-</section>
-
-<section class="cta-band" aria-labelledby="cta-title">
-  <div class="container cta-inner">
-    <div>
-      <h2 id="cta-title">Thinking about your next chapter?</h2>
-      <p>Whether you are an owner, a broker, or an intermediary, we welcome a confidential conversation.</p>
-    </div>
-    <div class="hero-actions">
-      <a href="/submit-a-business.html" class="btn btn-light btn-lg">Submit a Business</a>
-      <a href="/contact.html" class="btn btn-ghost-light btn-lg">Contact Us</a>
-    </div>
-  </div>
-</section>
-</main>
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-brand"><span class="brand-mark" aria-hidden="true">CJ</span>CJ Business Acquisitions</div>
-        <p>Acquiring and operating established engineering and manufacturing businesses in North Carolina, with continuity for the people and customers already there.</p>
-      </div>
-      <nav aria-label="Footer">
-        <h2>Navigate</h2>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/about.html">About</a></li>
-          <li><a href="/investment-criteria.html">Investment Criteria</a></li>
-          <li><a href="/for-business-owners.html">For Business Owners</a></li>
-          <li><a href="/for-business-owners.html#buying-process">Our Buying Process</a></li>
-          <li><a href="/submit-a-business.html">Submit a Business</a></li>
-        </ul>
-      </nav>
-      <div>
-        <h2>Contact</h2>
-        <ul>
-          <li><a href="mailto:cjohnson@cjbusinessacquisitions.com">cjohnson@cjbusinessacquisitions.com</a></li>
-          <li><a href="tel:+17402381005">740-238-1005</a></li>
-          <li><a href="https://www.linkedin.com/in/chad-johnson-782990149" rel="noopener noreferrer" target="_blank">LinkedIn<span class="visually-hidden"> (opens in a new tab)</span></a></li>
-          <li>North Carolina</li>
-        </ul>
-      </div>
-      <div>
-        <h2>Confidentiality</h2>
-        <p>All inquiries are held in strict confidence. An NDA is available on request.</p>
-        <ul><li><a href="/privacy.html">Privacy Policy</a></li><li><a href="/contact.html">Contact</a></li></ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>&copy; <span id="year">2026</span> CJ Business Acquisitions. All rights reserved.</span>
-      <span>North Carolina</span>
-    </div>
-  </div>
-</footer>
-<script>
+# Site behavior: theme switch, mobile nav, forms. No dependencies.
+MAIN_JS = r"""
 (function(){
   'use strict';
   var root=document.documentElement;
@@ -738,6 +621,136 @@ input:focus-visible,select:focus-visible,textarea:focus-visible{outline:none;bor
       .then(function(){clearTimeout(timer);setBusy(false);});
   });
 })();
-</script>
+"""
+
+
+# ---------------------------------------------------------------------------
+# Page chrome
+# ---------------------------------------------------------------------------
+NAV_ITEMS = [
+    ("/about.html", "About"),
+    ("/investment-criteria.html", "Investment Criteria"),
+    ("/for-business-owners.html", "For Business Owners"),
+    ("/contact.html", "Contact"),
+]
+
+THEME_SWITCH = """<div class="theme-row"><span class="theme-label" aria-hidden="true">Theme</span><div class="theme-switch" role="group" aria-label="Color theme">
+          <button type="button" data-theme-set="light" aria-pressed="false" title="Light theme">[[ICON:sun]]<span class="visually-hidden">Light theme</span></button>
+          <button type="button" data-theme-set="dark" aria-pressed="false" title="Dark theme">[[ICON:moon]]<span class="visually-hidden">Dark theme</span></button>
+          <button type="button" data-theme-set="system" aria-pressed="false" title="Match system">[[ICON:monitor]]<span class="visually-hidden">Match system setting</span></button>
+        </div></div>"""
+
+
+def head(page, title, description, path, noindex=False, jsonld=None):
+    canonical = SITE_URL + ("/" if path == "/index.html" else path)
+    robots = '<meta name="robots" content="noindex">' if noindex else '<meta name="robots" content="index,follow">'
+    canon = "" if noindex else '<link rel="canonical" href="%s">' % canonical
+    og = "" if noindex else """<meta property="og:type" content="website">
+<meta property="og:site_name" content="{site}">
+<meta property="og:title" content="{title}">
+<meta property="og:description" content="{desc}">
+<meta property="og:url" content="{url}">
+<meta property="og:image" content="{base}/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="CJ Business Acquisitions: acquiring established engineering and manufacturing businesses in North Carolina">
+<meta name="twitter:card" content="summary_large_image">""".format(site=SITE_NAME, title=title, desc=description, url=canonical, base=SITE_URL)
+    ld = ('\n<script type="application/ld+json">%s</script>' % jsonld) if jsonld else ""
+    return """<!DOCTYPE html>
+<html lang="en" data-theme-pref="system">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{title}</title>
+<meta name="description" content="{desc}">
+{robots}
+{canon}
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#0d1f33">
+<meta name="format-detection" content="telephone=no">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+{og}
+<script>{headjs}</script>
+<style>{css}</style>{ld}
+</head>
+""".format(title=title, desc=description, robots=robots, canon=canon, og=og, headjs=HEAD_JS, css=CSS.strip(), ld=ld)
+
+
+def header(active_path):
+    links = []
+    for href, label in NAV_ITEMS:
+        cur = ' aria-current="page"' if href == active_path else ""
+        links.append('<li><a href="%s"%s>%s</a></li>' % (href, cur, label))
+    return """<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="brand" aria-label="CJ Business Acquisitions, home">
+      <span class="brand-mark" aria-hidden="true">CJ</span>
+      <span class="brand-name" aria-hidden="true"><b>CJ Business Acquisitions</b><span>Engineering &amp; Manufacturing</span></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <span class="icon-open">[[ICON:menu]]</span><span class="icon-close">[[ICON:close]]</span>
+    </button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <ul class="nav-links">
+        %s
+      </ul>
+      <div class="nav-extra">
+        %s
+        <a href="/submit-a-business.html" class="btn"%s>Sell Your Business</a>
+      </div>
+    </nav>
+  </div>
+</header>
+<main id="main" tabindex="-1">
+""" % ("\n        ".join(links), THEME_SWITCH,
+       ' aria-current="page"' if active_path == "/submit-a-business.html" else "")
+
+
+FOOTER = """</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand"><span class="brand-mark" aria-hidden="true">CJ</span>CJ Business Acquisitions</div>
+        <p>Acquiring and operating established engineering and manufacturing businesses in North Carolina, with continuity for the people and customers already there.</p>
+      </div>
+      <nav aria-label="Footer">
+        <h2>Navigate</h2>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/investment-criteria.html">Investment Criteria</a></li>
+          <li><a href="/for-business-owners.html">For Business Owners</a></li>
+          <li><a href="/for-business-owners.html#buying-process">Our Buying Process</a></li>
+          <li><a href="/submit-a-business.html">Submit a Business</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="mailto:{email}">{email}</a></li>
+          <li><a href="tel:{tel}">{phone}</a></li>
+          <li><a href="{li}" rel="noopener noreferrer" target="_blank">LinkedIn<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+          <li>North Carolina</li>
+        </ul>
+      </div>
+      <div>
+        <h2>Confidentiality</h2>
+        <p>All inquiries are held in strict confidence. An NDA is available on request.</p>
+        <ul><li><a href="/privacy.html">Privacy Policy</a></li><li><a href="/contact.html">Contact</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="year">2026</span> CJ Business Acquisitions. All rights reserved.</span>
+      <span>North Carolina</span>
+    </div>
+  </div>
+</footer>
+<script>{js}</script>
 </body>
 </html>
+""".format(email=EMAIL, tel=PHONE_TEL, phone=PHONE_DISPLAY, li=LINKEDIN, js="__MAIN_JS__")

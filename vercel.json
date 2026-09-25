@@ -1,7 +1,73 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "trailingSlash": false,
   "redirects": [
-    { "source": "/buying-process", "destination": "/for-business-owners.html#buying-process", "permanent": true },
-    { "source": "/buying-process.html", "destination": "/for-business-owners.html#buying-process", "permanent": true }
+    {
+      "source": "/buying-process",
+      "destination": "/for-business-owners.html#buying-process",
+      "permanent": true
+    },
+    {
+      "source": "/buying-process.html",
+      "destination": "/for-business-owners.html#buying-process",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'none'; script-src 'sha256-VI+L+DPHAayzqHE4jUJWj4VUHkwIqiKqAlQdgHekg/k=' 'sha256-YNlzAUKrYOqKL+tuKe0FOvqTEhMg0hZVv5MZAQi4GlA=' https://js.hcaptcha.com https://hcaptcha.com https://*.hcaptcha.com; style-src 'sha256-x5jjMFbg3AAXNBgttI0JpVgrOMyOui0z3eG98bLAGwc=' https://hcaptcha.com https://*.hcaptcha.com; img-src 'self' data: https://hcaptcha.com https://*.hcaptcha.com; font-src 'self'; connect-src https://api.web3forms.com https://hcaptcha.com https://*.hcaptcha.com; frame-src https://hcaptcha.com https://*.hcaptcha.com; form-action https://api.web3forms.com; base-uri 'none'; object-src 'none'; frame-ancestors 'none'; upgrade-insecure-requests"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
+        },
+        {
+          "key": "Cross-Origin-Opener-Policy",
+          "value": "same-origin"
+        },
+        {
+          "key": "Cross-Origin-Resource-Policy",
+          "value": "same-origin"
+        }
+      ]
+    },
+    {
+      "source": "/inter-var-latin.woff2",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(favicon.svg|apple-touch-icon.png|og-image.jpg)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800"
+        }
+      ]
+    }
   ]
 }
